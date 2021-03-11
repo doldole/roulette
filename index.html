@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roulette</title>
+    <style>
+        .main_div {
+            border: 1px black solid;
+            width: 300px;
+        }
+    </style>
+    <script>
+        function fnAdd() {
+            var itemInput = document.createElement("input");
+            itemInput.setAttribute("type", "text");
+            itemInput.setAttribute("name", "item");
+
+            var frm = document.mainFrm.appendChild(itemInput);
+        }
+
+        function fnRemove() {
+            var items = document.getElementsByName("item");
+            var item = items[items.length - 1];
+
+            document.mainFrm.removeChild(item);
+        }
+    </script>
+</head>
+<body>
+    <form name="mainFrm" method="POST" action="/index_result.html">
+        <div class="btn_div">
+            <input type="button" name="itemAdd" onclick="fnAdd();" value="추가"/>
+            <input type="button" name="removeAdd" onclick="fnRemove();" value="삭제"/>
+            <input type="submit" value="완료"/>
+        </div>
+        <div class="main_div">
+            <label>메뉴</label>
+            <input type="text" name="item"/>
+        </div>
+    </form>
+</body>
+</html>
